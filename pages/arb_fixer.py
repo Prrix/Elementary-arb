@@ -58,5 +58,5 @@ if run_button and (old_odds1 > 0 and old_odds2 > 0):
     )
     col2.metric(
         label=f"Profit Percentage",
-        value=f"{(((payout1 - invested1 - invested2 - to_invest)/(invested1 +invested2 + to_invest))*100):.2f}",
+        value=f"{(((payout1 - invested1 - invested2 - to_invest)/(invested1 +invested2 + to_invest))*100):.2f%}",
     )
