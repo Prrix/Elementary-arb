@@ -112,15 +112,16 @@ def deposit_arb(limit1, limit2, odds1, odds2, account_balance1, account_balance2
 def deposit_arb_prrix(limit1, limit2, odds1, odds2, account_balance1, account_balance2):
     invest1 = min(limit1, account_balance1)
     invest2 = min(limit2, account_balance2)
-
+    print(invest1, invest2)
     if odds2 > odds1:
-        investment = {"odds2": max(invest2, invest1 / (odds2 - 1)), "odds1": invest1}
+        investment = {"odds2": min(invest2, invest1 / (odds2 - 1)), "odds1": invest1}
+        print(investment)
         investment["odds1"] = investment["odds2"] * (odds2 - 1)
         max_profit_percent = (
             investment["odds1"] * odds1 - investment["odds1"] - investment["odds2"]
         ) / (investment["odds1"] + investment["odds2"])
     else:
-        investment = {"odds1": max(invest1, invest2 / (odds1 - 1)), "odds2": invest2}
+        investment = {"odds1": min(invest1, invest2 / (odds1 - 1)), "odds2": invest2}
         investment["odds2"] = investment["odds1"] * (odds1 - 1)
         max_profit_percent = (
             investment["odds2"] * odds2 - investment["odds2"] - investment["odds1"]
