@@ -38,6 +38,7 @@ if run_button and (old_odds1 > 0 and old_odds2 > 0):
     payout1 = invested1 * old_odds1
     payout2 = invested2 * old_odds2
     delta = True if (payout1 - payout2) > 0 else False
+    print(payout1 - payout2)
     if delta:
 
         to_invest = (payout1 - payout2) / new_odds2
