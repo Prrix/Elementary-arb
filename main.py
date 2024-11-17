@@ -2,7 +2,12 @@ import streamlit as st
 from streamlit_extras.metric_cards import style_metric_cards
 from streamlit_extras.card import card
 
-st.set_page_config(page_title="Arbitrage Calculator", page_icon=":moneybag:")
+st.set_page_config(
+    page_title="Arbitrage Calculator",
+    page_icon=":moneybag:",
+    # initial_sidebar_state=
+)
+# st.title("Arbitrage Calculator")
 
 
 def layout_arb_prrix(max_profit_percent, investment, profit_win, payout):

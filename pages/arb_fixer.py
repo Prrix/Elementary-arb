@@ -16,7 +16,7 @@ with st.form(key="arbitrage_form"):
         old_odds1 = st.number_input("Old Odds 1", value=0.0, key="odds1")
         invested1 = st.number_input("Invested 1", value=0.0, key="invested1")
         new_odds1 = st.number_input(
-            "New Odds 1", value=old_odds1 if same_odds else 0, key="odds1"
+            "New Odds 1", value=old_odds1 if same_odds else 0, key="new_odds1"
         )
 
     # Account 2 input boxes
@@ -25,7 +25,7 @@ with st.form(key="arbitrage_form"):
         old_odds2 = st.number_input("Odds 2", value=0.0, key="odds2")
         invested2 = st.number_input("Invested 2", value=0.0, key="invested2")
         new_odds2 = st.number_input(
-            "New Odds 2", value=old_odds2 if same_odds else 0, key="odds2"
+            "New Odds 2", value=old_odds2 if same_odds else 0, key="new_odds2"
         )
 
     run_button = st.form_submit_button(
@@ -48,7 +48,7 @@ if run_button and (old_odds1 > 0 and old_odds2 > 0):
 
     col1, col2 = st.columns(2)
 
-    account_no = 1 if delta else 2
+    account_no = 2 if delta else 1
     col1.metric(label=f"Invest Into", value=f"Account {account_no}")
     col2.metric(label=f"Invest{account_no}", value=f"{to_invest:.2f}")
 
